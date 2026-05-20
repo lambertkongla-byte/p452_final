@@ -1,5 +1,35 @@
-numpy>=2.3.5
-matplotlib>=3.10.6
-qiskit>=2.4.1
-streamlit>=1.35.0
-pylatexenc>=2.10.1
+# Quantum Many-Body Scar Demos — Python dependencies
+#
+# Install into the active environment with:
+#     pip install -r requirements.txt
+#
+# Tested on Python 3.11.
+
+# ── Web UI ─────────────────────────────────────────────────────────────────
+# >=1.36 is required for st.Page / st.navigation (multi-page sidebar router
+# used by the top-level app.py).
+streamlit>=1.36
+
+# ── Core scientific stack ──────────────────────────────────────────────────
+numpy
+matplotlib
+pandas
+
+# ── Trotter-circuit page (circuits/app.py) ─────────────────────────────────
+# Qiskit builds the Heisenberg Trotter circuit; pylatexenc lets the
+# matplotlib drawer render LaTeX-style gate labels (RXX, RYY, RZZ, ...).
+qiskit
+pylatexenc
+
+# ── QuSpin page (qspin/app_qspin.py) ───────────────────────────────────────
+# Exact diagonalization. NOTE: pip-installing QuSpin can be brittle on some
+# systems because it builds from source. If `pip install quspin` fails,
+# install it via conda instead:
+#       conda install -c weinbe58 quspin
+# and leave this line commented out.
+quspin
+
+# ── Optional ───────────────────────────────────────────────────────────────
+# Used for the interactive quantization-axis figure in the QuSpin page;
+# falls back to a static matplotlib version if not installed.
+plotly
